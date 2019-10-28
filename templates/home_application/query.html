@@ -1,0 +1,62 @@
+<%inherit file="/base.html"/>
+<%block name="content">
+    <style type="text/css">
+        #footer{
+            position: relative;
+            bottom: -40px;
+        }
+    </style>
+      <div class="page-contactus">
+          <button type="button" id="check" name="check" onclick = "query()" value="参数">参数</button>
+          <a href="${SITE_URL}contactus" target="_blank">点击下载</a>
+      </div>
+    <div class="col-sm-6">
+        <div class="king-block king-block-bordered">
+            <div class="king-block-content clearfix">
+                <div class="plugin3_demo" id="plugin3_demo3" style="display:inline-block;">
+                    <tx>
+                        <td>业务</td>
+　                    　<td>
+                           <select id="businessSelect">
+　                     　　　 <option>选择A</option>
+　　　　                      <option>选择B</option>
+　　　　                      <option>选择C</option>
+　　                      </select>
+                        </td>
+                    </tx>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</%block>
+<%block name='footerline'>
+    <hr class="guide-cutting-line">
+</%block>
+<script>
+    $("#check").click(
+    function(){
+    $.ajax({
+      url:"/search/",
+      type:'post',
+      data:{"name":"asdafafd"},
+      success:function(res){
+        console.log(res)
+        alert(res);
+      }
+    })
+    }
+    )
+
+    function query(){
+        $.ajax({
+          url:"/search/",
+          type:'post',
+          dataType : "JSON",
+          data:{"aaaa":121221},
+          success:function(res){
+            console.log(res)
+          }
+        })
+    }
+</script>
